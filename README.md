@@ -14,3 +14,176 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+# Tugas 1
+
+## Implementasi Checklist
+### Membuat sebuah program Flutter baru dengan tema inventory seperti tugas-tugas sebelumnya.
+1. Buka Terminal atau Command Prompt.
+2. Masuk ke direktori di mana kamu ingin menyimpan proyek flutter-mu.
+3. Generate proyek Flutter baru dengan nama shopping_list, kemudian masuk ke dalam direktori proyek tersebut.
+```
+flutter create tokopakedi
+cd tokopakedi
+```
+4. Buka pada vscode ke folder yang telah kamu buat flutter _project_ sebelumnya
+5. Buka `main.dart`, ubah `colorScheme` nya menjadi berikut:
+```
+colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+```
+
+
+
+### Membuat tiga tombol sederhana dengan ikon dan teks untuk: Melihat daftar item (Lihat Item),  Menambah item (Tambah Item), dan  Logout (Logout)
+1. Hapus bagian `MyHomePage(title: 'Flutter Demo Home Page')` menjadi:
+```
+MyHomePage()
+```
+2. Di `menu.dart`, ubah widgetnya menjadi _stateless_ dengan menambahkan kode berikut:
+```
+class MyHomePage extends StatelessWidget {
+    MyHomePage({Key? key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            ...
+        );
+    }
+}
+```
+3. Hapus class yang ada di bawahnya
+4. Tambahkan _class_ baru untuk item yang akan dijual:
+```
+class ShopItem {
+  final String name;
+  final IconData icon;
+
+  ShopItem(this.name, this.icon);
+}
+```
+5. Di bawah kode `mePage({Key? key}) : super(key: key);`, tambahkan:
+```
+final List<ShopItem> items = [
+ShopItem("Lihat Item", Icons.checklist),
+ShopItem("Tambah Item", Icons.add_shopping_cart),
+ShopItem("Logout", Icons.logout),
+];
+```
+6. Tambahkan kode berikut di dalam _class_ `MyHomePage` dibawah kode `Widget build(BuildContext context) {` dengan kode berikut:
+```
+return Scaffold(
+appBar: AppBar(
+    title: const Text(
+    'Shopping List',
+    ),
+),
+body: SingleChildScrollView(
+    // Widget wrapper yang dapat discroll
+    child: Padding(
+    padding: const EdgeInsets.all(10.0), // Set padding dari halaman
+    child: Column(
+        // Widget untuk menampilkan children secara vertikal
+        children: <Widget>[
+        const Padding(
+            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+            // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
+            child: Text(
+            'PBP Shop', // Text yang menandakan toko
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+            ),
+            ),
+        ),
+        // Grid layout
+        GridView.count(
+            // Container pada card kita.
+            primary: true,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            crossAxisCount: 3,
+            shrinkWrap: true,
+            children: items.map((ShopItem item) {
+            // Iterasi untuk setiap item
+            return ShopCard(item);
+            }).toList(),
+        ),
+        ],
+    ),
+    ),
+),
+);
+```
+7. Buat _class_ card baru untuk menampilkan _card_ dengan data dari _class_ `ShopItem` dengan kode berikut:
+```
+class ShopCard extends StatelessWidget {
+  final ShopItem item;
+
+  const ShopCard(this.item, {super.key}); // Constructor
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.indigo,
+      child: InkWell(
+        // Area responsive terhadap sentuhan
+        onTap: () {
+        },
+        child: Container(
+          // Container untuk menyimpan Icon dan Text
+          padding: const EdgeInsets.all(8),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  item.icon,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+                const Padding(padding: EdgeInsets.all(3)),
+                Text(
+                  item.name,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+### Memunculkan Snackbar dengan tulisan: "Kamu telah menekan tombol Lihat Item" ketika tombol Lihat Item ditekan,  "Kamu telah menekan tombol Tambah Item" ketika tombol Tambah Item ditekan,  "Kamu telah menekan tombol Tambah Item" ketika tombol Tambah Item ditekan.
+1. Tambahkan `SnackBar` di dalam fungsi `onTap` di dalam `InkWell` `ShopCard` _Class_ dengan kode berikut:
+```
+ScaffoldMessenger.of(context)
+..hideCurrentSnackBar()
+..showSnackBar(SnackBar(
+    content: Text("Kamu telah menekan tombol ${item.name}!")));
+```
+
+## Bonus
+1. Tambahkan _field_ `  final MaterialColor color;` di dalam `ShopItem` _class_
+2. Ubah _constructor_ _class_ `ShopItem` menjadi seperti berikut:
+```
+ShopItem(this.name, this.icon, this.color);
+```
+3. Tambahkan `color` pada setiap _instance class_ `ShopItem` yang telah di definisikan pada `MyHomePage` _class_ menjadi seperti berikut:
+```
+final List<ShopItem> items = [
+ShopItem("Lihat Item", Icons.checklist, Colors.indigo),
+ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.green),
+ShopItem("Logout", Icons.logout,Colors.red),
+];
+```
+4. Ubah coolor di bawah `return Material(` di dalam `ShopCard` _Class_ menjadi seperti berikut:
+```
+color: item.color,
+```
