@@ -20,18 +20,18 @@ samples, guidance on mobile development, and a full API reference.
 ## Pertanyaan
 ###  Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
 * Stateless widget
-1. Merupakan static widget
-2. Tidak dapat melakukan perubahan data ketika sedang dijalankan
-3. Tidak mempunyai state, hanya akan di-_render_ sekali dan tidak bisa di _re-render_ 
-4. Contohnya: Text, Icon, RaisedButton
+  1. Merupakan static widget
+  2. Tidak dapat melakukan perubahan data ketika sedang dijalankan
+  3. Tidak mempunyai state, hanya akan di-_render_ sekali dan tidak bisa di _re-render_ 
+  4. Contohnya: Text, Icon, RaisedButton
 
 * Stateful widget
-1. Merupakan dynamic widget
-2. Dapat melakukan perubahan data ketika sedang dijalankan
-3. Dapat memiliki _internal state_ dan dapat di-_re-render_ ketika ada perubahan data
-4. Contohnya: Checkbox, Radio Button, Slider
+  1. Merupakan dynamic widget
+  2. Dapat melakukan perubahan data ketika sedang dijalankan
+  3. Dapat memiliki _internal state_ dan dapat di-_re-render_ ketika ada perubahan data
+  4. Contohnya: Checkbox, Radio Button, Slider
 
-###
+### Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
 1. SingleChildScrollView: Membuat _single child_ bisa di-_scroll_
 2. Padding:  Menambahkan _padding_ di sekitar
 3. Column: Menampilkan _children_-nya secara vertikal dan mengisi _vertical space_ yang tersedia
