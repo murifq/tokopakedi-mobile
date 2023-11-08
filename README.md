@@ -17,6 +17,34 @@ samples, guidance on mobile development, and a full API reference.
 
 # Tugas 1
 
+## Pertanyaan
+###  Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
+* Stateless widget
+1. Merupakan static widget
+2. Tidak dapat melakukan perubahan data ketika sedang dijalankan
+3. Tidak mempunyai state, hanya akan di-_render_ sekali dan tidak bisa di _re-render_ 
+4. Contohnya: Text, Icon, RaisedButton
+
+* Stateful widget
+1. Merupakan dynamic widget
+2. Dapat melakukan perubahan data ketika sedang dijalankan
+3. Dapat memiliki _internal state_ dan dapat di-_re-render_ ketika ada perubahan data
+4. Contohnya: Checkbox, Radio Button, Slider
+
+###
+1. SingleChildScrollView: Membuat _single child_ bisa di-_scroll_
+2. Padding:  Menambahkan _padding_ di sekitar
+3. Column: Menampilkan _children_-nya secara vertikal dan mengisi _vertical space_ yang tersedia
+4. Text: Menampillkan teks
+5. GridView: Menampilkan _children_-nya secara 2D dan dapat di-_scroll_
+6. Material: _Standard visual design_ di mobile dan web platform. Konsepnya seperti permukaan kertas
+7. InkWell: Area segi empat yang mana bisa memberikan respon ketika disentuh
+8. Container: Menyimpan widget dan memposisikannya di layar
+9. Scaffold: _Basic layout structure_ di flutter. Dapat menampung _app bar_, _body_, dan _floating action button_
+10. App bar: _Bar_ di atas aplikasi yang dapat menampilkan _tittle, leading actions_, dan lainnya
+
+
+
 ## Implementasi Checklist
 ### Membuat sebuah program Flutter baru dengan tema inventory seperti tugas-tugas sebelumnya.
 1. Buka Terminal atau Command Prompt.
