@@ -216,7 +216,7 @@ ShopItem("Logout", Icons.logout,Colors.red),
 color: item.color,
 ```
 
-# Tugas 7
+# Tugas 8
 ## Pertanyaan
 
 
