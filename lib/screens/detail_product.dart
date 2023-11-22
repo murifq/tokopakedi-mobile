@@ -3,13 +3,6 @@ import 'package:tokopakedi/models/product.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tokopakedi/screens/zoomed_photo.dart';
 
-// import 'package:carousel_slider/carousel_slider.dart';
-
-// import 'package:yuk_belanja/Model/account.dart';
-// import 'package:yuk_belanja/Model/shopping_item.dart';
-
-// import 'package:yuk_belanja/Screen/zoomed_photo_screen.dart';
-
 var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
@@ -94,83 +87,10 @@ class DetailScreen extends StatelessWidget {
                       ],
                     ),
                 )),
-        // bottomNavigationBar: 
-        // getMaxWidth() < 800
-        // ? BottomNavigationBar(
-        //   items: [
-        //     BottomNavigationBarItem(
-        //         icon: CartButton(loggedInUser: loggedInUser, selectedItem:selectedItem),
-        //         label: 'Masukkan keranjang'),
-        //     BottomNavigationBarItem(
-        //         icon: FavoriteButton(
-        //             loggedInUser: loggedInUser,
-        //             selectedItem: selectedItem,
-        //             isFavorite: loggedInUser.isItemInFavoriteList(selectedItem)),
-        //         label: 'Favorite'),
-        //   ],
-        //   unselectedItemColor: Colors.blue,
-        //   selectedItemColor: Colors.blue,
-        // )
-        // : null
       );
         
   }
 }
-
-// class CartButton extends StatelessWidget {
-//   final Account loggedInUser;
-//   final ShoppingItem selectedItem;
-//   const CartButton({Key? key, required this.loggedInUser, required this.selectedItem})
-//       : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return IconButton(
-//       icon: const Icon(Icons.shopping_cart),
-//       onPressed: () {
-//         loggedInUser.addItemToCart(selectedItem);
-//       },
-//     );
-//   }
-// }
-
-// class FavoriteButton extends StatefulWidget {
-//   const FavoriteButton(
-//       {Key? key,
-//       required this.loggedInUser,
-//       required this.selectedItem,
-//       required this.isFavorite})
-//       : super(key: key);
-//   final Account loggedInUser;
-//   final ShoppingItem selectedItem;
-//   final bool isFavorite;
-//   @override
-//   _FavoriteButtonState createState() => _FavoriteButtonState();
-// }
-
-// class _FavoriteButtonState extends State<FavoriteButton> {
-//   late bool isFavorite = widget.isFavorite;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return IconButton(
-//       icon: Icon(
-//         isFavorite ? Icons.favorite : Icons.favorite_border,
-//         color: Colors.red,
-//       ),
-//       onPressed: () {
-//         setState(() {
-//           isFavorite = !isFavorite;
-//           if (isFavorite == true) {
-//             widget.loggedInUser.addItemToFavoriteList(widget.selectedItem);
-//           } else {
-//             widget.loggedInUser.deleteItemFromFavoriteList(widget.selectedItem);
-//           }
-//         });
-//       },
-//     );
-//   }
-// }
 
 class DetailMobileScreen extends StatefulWidget {
   const DetailMobileScreen({Key? key, required this.selectedItem})
